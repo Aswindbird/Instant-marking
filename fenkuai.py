@@ -1,7 +1,7 @@
 #date: 2017-1-21
 #author: bird
 
-import sys
+import sys,re
 
 f = open('simple.txt','r')
 file = f.readlines()
@@ -21,8 +21,16 @@ def blocks(file) :
             block = []
         # print block
 print '<html><head><title>jishibiaoji</title></head><body>'
+title = True
 for block in blocks(sys.stdin):
-    print '<h1>'
-    print block
-    print '</h1>'
+    # block = re.sub(r'\*(.+?)\*',r'<em>\1</em>',block)
+    if title:
+        print '<h1>'
+        print block
+        print '</h1>'
+        title = False
+    else:
+        print '<p>'
+        print block
+        print '</p>'
 print '</body></html>'
