@@ -17,13 +17,13 @@ def blocks(file) :
         if line != '\n' :
             block.append(line)
         else:
-            yield block
+            yield ''.join(block).strip()
             block = []
         # print block
 print '<html><head><title>jishibiaoji</title></head><body>'
 title = True
 for block in blocks(sys.stdin):
-    block = re.sub(r'\*(.+?)\*',r'<em>\1</em>',str(block))
+    block = re.sub(r'\*(.+?)\*',r'<em><font color="#FF0000">\1</font></em>',block)
     if title:
         print '<h1>'
         print block
