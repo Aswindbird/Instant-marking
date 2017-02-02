@@ -23,7 +23,7 @@ def blocks(file) :
 print '<html><head><title>jishibiaoji</title></head><body>'
 title = True
 for block in blocks(sys.stdin):
-    # block = re.sub(r'\*(.+?)\*',r'<em>\1</em>',block)
+    block = re.sub(r'\*(.+?)\*',r'<em>\1</em>',str(block))
     if title:
         print '<h1>'
         print block
